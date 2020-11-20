@@ -1,7 +1,7 @@
 let canvas = document.querySelector('canvas')
 let ctx = canvas.getContext('2d')
-let msg = document.querySelector('p')
-
+let msg = document.querySelector('#message')
+let counter=0;
 let cellSize=100;
 let map=[0,0,0,
         0,0,0,
@@ -23,6 +23,8 @@ canvas.addEventListener('click',(e)=>{
 })
 
 function play(cell){
+    counter++;
+    console.log(counter)
     if(gameOver){
         msg.textContent='game Over';
     return;
@@ -38,9 +40,14 @@ function play(cell){
         currentPlayer==1?msg.textContent='Player1 X is winner'
             :msg.textContent='Player2 O is Winner'   
     }
+    else if(counter==9&&checkWin()==false){
+        draw();
+        msg.textContent='tie'
+        return;
+    }
     currentPlayer*=-1;
-
     draw();
+    
 }
 
 function checkWin(){
@@ -156,5 +163,5 @@ function createMatrix(){
         index++;
         }
     }
-    console.log(winMatrix)
+    //  console.log(winMatrix)
 }
