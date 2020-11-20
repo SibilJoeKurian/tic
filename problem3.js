@@ -2,7 +2,7 @@ let canvas = document.querySelector('canvas')
 let ctx = canvas.getContext('2d')
 let msg = document.querySelector('#message')
 let counter=0;
-let cellSize=100;
+let cellSize=150;
 let map=[0,0,0,
         0,0,0,
         0,0,0]
@@ -37,8 +37,8 @@ function play(cell){
     createMatrix();
     if(checkWin()==true){
         gameOver=true;
-        currentPlayer==1?msg.textContent='Player1 X is winner'
-            :msg.textContent='Player2 O is Winner'   
+        currentPlayer==1?msg.textContent='Player1-X is winner'
+            :msg.textContent='Player2-O is Winner'   
     }
     else if(counter==9&&checkWin()==false){
         draw();
